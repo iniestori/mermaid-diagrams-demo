@@ -4,7 +4,6 @@ Below is a flowchart explaining the Power BI SDK report customization and loadin
 
 ```mermaid
 flowchart TD
-  %% ===== PORTAL WEB APP SDK =====
   subgraph Portal_Web_App_SDK["Portal Web App SDK"]
         A[1. User customizes visual]
         B{2. Click on Save State}
@@ -12,36 +11,32 @@ flowchart TD
         D[4. Captures the complete JSON object]
   end
 
-  %% ===== EXTERNAL STORAGE =====
   subgraph External_Storage["External Storage"]
         E[5. Database stores JSON]
   end
 
-  %% ===== REPORT LOADING =====
   subgraph Report_Loading["Report Loading"]
         F[6. User loads report]
   end
 
-  %% ===== POWER BI SERVICE =====
   subgraph Power_BI_Service["Power BI Service"]
         G[7. Central semantic model]
         J[10. Embedded report with full customization]
   end
 
-  %% ===== CONNECTIONS =====
   A --> B
   B --> C
   C --> D
   D --> E
   F --> H[8. Retrieves stored JSON]
   E --> H
-  H --> I[9. Client SDK applies JSON (setReportState)]
+  H --> I[9. Client SDK applies JSON - setReportState]
   I --> G
   G --> J
 
-  %% ===== STYLES =====
   style Portal_Web_App_SDK fill:#e0f3ff,stroke:#007acc,stroke-width:2px,color:#000,font-weight:bold
   style External_Storage fill:#eaffea,stroke:#33a02c,stroke-width:2px,color:#000
   style Report_Loading fill:#fff3cd,stroke:#e6b800,stroke-width:2px,color:#000
   style Power_BI_Service fill:#fff0f5,stroke:#cc6699,stroke-width:2px,color:#000
   style B fill:#f9f,stroke:#333,stroke-width:2px
+
